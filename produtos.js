@@ -6,7 +6,7 @@ const listaProdutos = [
     "nome": "Notebook Dell Inspiron 15 3000",
     "descricao": "Notebook com processador Intel Core i5, 8GB de RAM e 256GB de SSD",
     "preco": 3999.99,
-    "imagem": "notebook-dell-inspiron-15-3000.png",
+    "imagem": "img/notebook-dell-inspiron-15-3000.png",
     "categoria": "Informática",
     "classificacao": 2
   },
@@ -15,7 +15,7 @@ const listaProdutos = [
     "nome": "Monitor Samsung LED 23.8 polegadas",
     "descricao": "Monitor LED com resolução Full HD e tempo de resposta de 5ms",
     "preco": 799.99,
-    "imagem": "monitor-samsung-led-23.8.png",
+    "imagem": "img/monitor-samsung-led-23.8.png",
     "categoria": "Informática",
     "classificacao": 4
   },
@@ -24,7 +24,7 @@ const listaProdutos = [
     "nome": "Mouse Gamer Logitech G Pro",
     "descricao": "Mouse com sensor HERO 25K, 6 botões programáveis e 16000 DPI",
     "preco": 299.99,
-    "imagem": "mouse-gamer-logitech-g-pro.png",
+    "imagem": "img/mouse-gamer-logitech-g-pro.png",
     "categoria": "Informática",
     "classificacao": 2
   },
@@ -33,7 +33,7 @@ const listaProdutos = [
     "nome": "Teclado Mecânico Redragon Kumara",
     "descricao": "Teclado mecânico com switches Outemu Blue e iluminação em LED",
     "preco": 219.99,
-    "imagem": "teclado-mecanico-redragon-kumara.png",
+    "imagem": "img/teclado-mecanico-redragon-kumara.png",
     "categoria": "Informática",
     "classificacao": 5
   },
@@ -42,7 +42,7 @@ const listaProdutos = [
     "nome": "Smartphone Samsung Galaxy S21",
     "descricao": "Smartphone com tela de 6.2 polegadas, processador Exynos 2100 e câmera de 64 MP",
     "preco": 5999.99,
-    "imagem": "smartphone-samsung-galaxy-s21.png",
+    "imagem": "img/smartphone-samsung-galaxy-s21.png",
     "categoria": "Informática",
     "classificacao": 5
   },
@@ -51,7 +51,7 @@ const listaProdutos = [
     "nome": "Tablet Apple iPad Pro",
     "descricao": "Tablet com tela de 11 polegadas, processador A12Z Bionic e câmera de 12 MP",
     "preco": 8499.99,
-    "imagem": "tablet-apple-ipad-pro.png",
+    "imagem": "img/tablet-apple-ipad-pro.png",
     "categoria": "Informática",
     "classificacao": 4
   },
@@ -60,7 +60,7 @@ const listaProdutos = [
     "nome": "Caixa de Som JBL Flip 5",
     "descricao": "Caixa de som portátil com Bluetooth, resistente à água e bateria com duração de até 12 horas",
     "preco": 499.99,
-    "imagem": "caixa-de-som-jbl-flip-5.png",
+    "imagem": "img/caixa-de-som-jbl-flip-5.png",
     "categoria": "Eletrônicos",
     "classificacao": 3
   },
@@ -69,7 +69,7 @@ const listaProdutos = [
     "nome": "Fone de Ouvido Bluetooth JBL Tune 500BT",
     "descricao": "Fone de ouvido com conectividade Bluetooth, bateria com duração de até 16 horas e microfone integrado",
     "preco": 299.99,
-    "imagem": "fone-de-ouvido-bluetooth-jbl-tune-500bt.png",
+    "imagem": "img/fone-de-ouvido-bluetooth-jbl-tune-500bt.png",
     "categoria": "Eletrônicos",
     "classificacao": 4
   },
@@ -78,7 +78,7 @@ const listaProdutos = [
     "nome": "Smartwatch Samsung Galaxy Watch 3",
     "descricao": "Smartwatch com tela de 1.4 polegadas, GPS integrado e bateria com duração de até 56 horas",
     "preco": 2799.99,
-    "imagem": "smartwatch-samsung-galaxy-watch-3.png",
+    "imagem": "img/smartwatch-samsung-galaxy-watch-3.png",
     "categoria": "Eletrônicos",
     "classificacao": 4
   },
@@ -87,8 +87,24 @@ const listaProdutos = [
     "nome": "Câmera Sony Alpha a7 III",
     "descricao": "Câmera mirrorless com sensor full-frame de 24.2 MP, estabilização de imagem de 5 eixos e gravação de vídeo em 4K",
     "preco": 12999.99,
-    "imagem": "camera-sony-alpha-a7-iii.png",
+    "imagem": "img/camera-sony-alpha-a7-iii.png",
     "categoria": "Eletrônicos",
     "classificacao": 4
   }
 ]
+
+function gerarLista() {
+  const lista = document.getElementById('lista');
+  
+  lista.innerHTML = listaProdutos.map(produto => `
+    <div class="produto">
+      <img src="${produto.imagem}">
+      <p class="categoria">${produto.categoria}</p>
+      <h3>${produto.nome}</h3>
+      <p>${produto.descricao}</p>
+      <strong>${produto.preco.toLocaleString('pt-br', { style: 'currency', currency: 'BRL'})}</strong>
+    </div>
+  `).join('');
+}
+
+gerarLista();
